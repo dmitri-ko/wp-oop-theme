@@ -9,6 +9,8 @@
 
 namespace Dmitriko\Theme;
 
+use Dmitriko\Utils\Version_Checker;
+
 /**
  * WordPress OOP Theme Class
  */
@@ -22,8 +24,14 @@ class Theme {
 
 	/**
 	 * Default Constructor
+	 *
+	 * @param string $min_php_version minimum PHP version to run the theme.
 	 */
-	public function __construct() {
+	public function __construct( string $min_php_version = '7.1' ) {
+		$min_php_version = Version_Checker::is_greater( $min_php_version, '7.1' ) ? $min_php_version : '7.1';
+		if ( ! Version_Checker::check_version( $min_php_version ) ) {
+			wp_die( esc_html__( 'Minimum version of PHP to use the class is ', 'dmitriko' ) . esc_html( $min_php_version ), esc_html__( 'Wrong PHP version', 'dmitriko' ) );
+		}
 		$this->loader = new Loader();
 	}
 
