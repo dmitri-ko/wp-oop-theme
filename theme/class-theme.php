@@ -30,7 +30,13 @@ class Theme {
 	public function __construct( string $min_php_version = '7.1' ) {
 		$min_php_version = Version_Checker::is_greater( $min_php_version, '7.1' ) ? $min_php_version : '7.1';
 		if ( ! Version_Checker::check_version( $min_php_version ) ) {
-			wp_die( esc_html__( 'Minimum version of PHP to use the class is ', 'dmitriko' ) . esc_html( $min_php_version ), esc_html__( 'Wrong PHP version', 'dmitriko' ) );
+			wp_die(
+				esc_html__(
+					'Minimum version of PHP to use the class is ',
+					'dmitriko'
+				) . esc_html( $min_php_version ),
+				esc_html__( 'Wrong PHP version', 'dmitriko' )
+			);
 		}
 		$this->loader = new Loader();
 	}
@@ -58,7 +64,7 @@ class Theme {
 	}
 
 	/**
-	 * Add actiona after theme  setup
+	 * Add action after theme  setup
 	 *
 	 * @param callable $function the funtion to run.
 	 *
@@ -106,8 +112,15 @@ class Theme {
 	 *
 	 * @return $this
 	 */
-	public function add_script( string $handle, string $src = '', array $deps = array(), $ver = false, bool $in_footer = false, bool $cond = true,
-		bool $ajax = false ): Theme {
+	public function add_script(
+		string $handle,
+		string $src = '',
+		array $deps = array(),
+		$ver = false,
+		bool $in_footer = false,
+		bool $cond = true,
+		bool $ajax = false
+	): Theme {
 		if ( $cond ) {
 			$this->action_enqueue_scripts(
 				function () use ( $handle, $src, $deps, $ver, $in_footer, $ajax ) {
@@ -152,11 +165,11 @@ class Theme {
 	/**
 	 * Add style to the theme
 	 *
-	 * @param string      $handle the style handle.
-	 * @param string      $src    the style source URL.
-	 * @param array       $deps   the style dependencies.
-	 * @param bool|string $ver    the style version.
-	 * @param string      $media  the media selector.
+	 * @param string      $handle   the style handle.
+	 * @param string      $src      the style source URL.
+	 * @param array       $deps     the style dependencies.
+	 * @param bool|string $ver      the style version.
+	 * @param string      $media    the media selector.
 	 * @param int         $priority the priority.
 	 *
 	 * @return $this
@@ -182,7 +195,7 @@ class Theme {
 	/**
 	 * Add shortcode to the theme
 	 *
-	 * @param string   $tag the shortcode tag.
+	 * @param string   $tag      the shortcode tag.
 	 * @param callable $callback the shortcode callback.
 	 *
 	 * @return $this
@@ -204,7 +217,13 @@ class Theme {
 	 *
 	 * @return $this
 	 */
-	public function add_admin_script( string $handle, string $src = '', array $deps = array(), $ver = false, bool $in_footer = false ): Theme {
+	public function add_admin_script(
+		string $handle,
+		string $src = '',
+		array $deps = array(),
+		$ver = false,
+		bool $in_footer = false
+	): Theme {
 		$this->action_admin_enqueue_scripts(
 			function () use ( $handle, $src, $deps, $ver, $in_footer ) {
 				wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
@@ -241,10 +260,44 @@ class Theme {
 	 *
 	 * @return $this
 	 */
-	public function add_admin_style( string $handle, string $src = '', array $deps = array(), $ver = false, string $media = 'all' ): Theme {
+	public function add_admin_style(
+		string $handle,
+		string $src = '',
+		array $deps = array(),
+		$ver = false,
+		string $media = 'all'
+	): Theme {
 		$this->action_admin_enqueue_scripts(
 			function () use ( $handle, $src, $deps, $ver, $media ) {
 				wp_enqueue_style( $handle, $src, $deps, $ver, $media );
+			}
+		);
+
+		return $this;
+	}
+
+	/**
+	 * Add editor style to the theme
+	 *
+	 * @param string      $handle the style handle.
+	 * @param string      $src    the style source URL.
+	 * @param array       $deps   the style dependencies.
+	 * @param bool|string $ver    the style version.
+	 * @param string      $media  the media selector.
+	 *
+	 * @return $this
+	 */
+	public function add_editor_style(
+		string $handle,
+		string $src = '',
+		array $deps = array(),
+		$ver = false,
+		string $media = 'all'
+	): Theme {
+		add_action(
+			'enqueue_block_editor_assets',
+			function () use ( $handle, $src, $deps, $ver, $media ) {
+				wp_enqueue_style( $handle, get_stylesheet_directory_uri() . $src, $deps, $ver, $media );
 			}
 		);
 
@@ -289,7 +342,7 @@ class Theme {
 	 * Load text domain.
 	 *
 	 * @param string       $domain the language domain
-	 * @param false|string $path the path to domain files.
+	 * @param false|string $path   the path to domain files.
 	 *
 	 * @return $this
 	 */
@@ -376,7 +429,7 @@ class Theme {
 	/**
 	 * Add navigation menu
 	 *
-	 * @param string $location the menu location.
+	 * @param string $location    the menu location.
 	 * @param string $description the menu description.
 	 *
 	 * @return $this
