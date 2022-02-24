@@ -2,7 +2,7 @@
 /**
  * WordPress OOP Theme
  *
- * @since             1.0.0
+ * @since             1.0.1
  * @package           Dmitriko
  * @subpackage        Dmitriko/theme
  */
@@ -297,7 +297,7 @@ class Theme {
 		add_action(
 			'enqueue_block_editor_assets',
 			function () use ( $handle, $src, $deps, $ver, $media ) {
-				wp_enqueue_style( $handle, get_stylesheet_directory_uri() . $src, $deps, $ver, $media );
+				wp_enqueue_style( $handle, $src, $deps, $ver, $media );
 			}
 		);
 
