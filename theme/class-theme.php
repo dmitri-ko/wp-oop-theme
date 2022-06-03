@@ -23,6 +23,14 @@ class Theme {
 	protected $loader;
 
 	/**
+	 * The theme slug
+	 *
+	 * @var string
+	 * @since 1.0.2
+	 */
+	protected string $theme_slug = 'dmitriko';
+
+	/**
 	 * Default Constructor
 	 *
 	 * @param string $min_php_version minimum PHP version to run the theme.
@@ -39,6 +47,9 @@ class Theme {
 			);
 		}
 		$this->loader = new Loader();
+		$this->add_style( $this->theme_slug . '-styles', get_stylesheet_uri(), array(), false, 'all', 20 )
+			->add_style( $this->theme_slug . '-theme', get_stylesheet_directory_uri() . '/css/theme.css', array(), false, 'all', 20 );
+
 	}
 
 	/**
