@@ -1,20 +1,20 @@
 <?php
 
 /* Configure autoloading */
-require_once get_stylesheet_directory() . '/classes/dmitriko/autoloader/class-autoloader.php';
+require_once get_stylesheet_directory() . '/classes/Kodi/autoloader/class-autoloader.php';
 
-use Dmitriko\Autoloader\Autoloader;
+use Kodi\Autoloader\Autoloader;
 
 $autoloader = new Autoloader();
 
 
 /* Run theme class */
 
-use Dmitriko\Theme\Theme;
+use Kodi\Theme\Theme;
 
 function run_theme() {
 
-	$theme = new Dmitriko\Theme\Theme();
+	$theme = new Kodi\Theme\Theme();
 
 }
 

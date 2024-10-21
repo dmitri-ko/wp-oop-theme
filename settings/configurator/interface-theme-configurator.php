@@ -5,13 +5,13 @@
  * Handles theme configuration.
  *
  * @since             1.0.0
- * @package           Dmitriko
- * @subpackage        Dmitriko/inc/settings
+ * @package           Kodi
+ * @subpackage        Kodi/inc/settings
  */
 
-namespace Dmitriko\Settings\Configurator;
+namespace Kodi\Settings\Configurator;
 
-use Dmitriko\Theme\Theme;
+use Kodi\Theme\Theme;
 
 /**
  * Theme configurator interface

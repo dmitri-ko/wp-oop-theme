@@ -1,6 +1,6 @@
 <?php
 
-namespace Dmitriko\Settings\Json;
+namespace Kodi\Settings\Json;
 
 /**
  * Theme settings

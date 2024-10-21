@@ -3,13 +3,13 @@
  * WordPress OOP Theme
  *
  * @since             1.0.1
- * @package           Dmitriko
- * @subpackage        Dmitriko/theme
+ * @package           Kodi
+ * @subpackage        Kodi/theme
  */
 
-namespace Dmitriko\Theme;
+namespace Kodi\Theme;
 
-use Dmitriko\Utils\Version_Checker;
+use Kodi\Utils\Version_Checker;
 
 /**
  * WordPress OOP Theme Class
@@ -28,7 +28,7 @@ class Theme {
 	 * @var string
 	 * @since 1.0.2
 	 */
-	protected string $theme_slug = 'dmitriko';
+	protected string $theme_slug = 'Kodi';
 
 	/**
 	 * Default Constructor
@@ -41,9 +41,9 @@ class Theme {
 			wp_die(
 				esc_html__(
 					'Minimum version of PHP to use the class is ',
-					'dmitriko'
+					'Kodi'
 				) . esc_html( $min_php_version ),
-				esc_html__( 'Wrong PHP version', 'dmitriko' )
+				esc_html__( 'Wrong PHP version', 'Kodi' )
 			);
 		}
 		$this->loader = new Loader();

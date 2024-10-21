@@ -5,11 +5,11 @@
  * Handles theme settings file resolve.
  *
  * @since             1.0.0
- * @package           Dmitriko
- * @subpackage        Dmitriko/settings
+ * @package           Kodi
+ * @subpackage        Kodi/settings
  */
 
-namespace Dmitriko\Settings\Json;
+namespace Kodi\Settings\Json;
 
 /**
  * Class that abstracts the processing of the different data sources

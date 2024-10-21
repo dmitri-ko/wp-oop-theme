@@ -4,11 +4,11 @@
  *
  * @link              http://example.com
  * @since             1.0.0
- * @package           Dmitriko
- * @subpackage        Dmitriko/inc/woocommerce
+ * @package           Kodi
+ * @subpackage        Kodi/inc/woocommerce
  */
 
-namespace Dmitriko\Utils;
+namespace Kodi\Utils;
 
 use ErrorException;
 

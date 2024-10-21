@@ -3,11 +3,11 @@
  * WorpdPress Actions and Filters Loader
  *
  * @since             1.0.0
- * @package           Dmitriko
- * @subpackage        Dmitriko/theme
+ * @package           Kodi
+ * @subpackage        Kodi/theme
  */
 
-namespace Dmitriko\Theme;
+namespace Kodi\Theme;
 
 /**
  * Loader Class

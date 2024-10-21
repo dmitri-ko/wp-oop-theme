@@ -5,11 +5,11 @@
  * Handles methods to make routine theme functions.
  *
  * @since             1.0.0
- * @package           Dmitriko
- * @subpackage        Dmitriko/theme
+ * @package           Kodi
+ * @subpackage        Kodi/theme
  */
 
-namespace Dmitriko\Autoloader;
+namespace Kodi\Autoloader;
 
 /**
  * Autoloader class
@@ -47,7 +47,7 @@ class Autoloader {
 	 */
 	public function __construct( array $namespaces = array(), string $root = '/classes' ) {
 		$this->root       = untrailingslashit( $root );
-		$this->namespaces = array_merge( array( 'Dmitriko' ), $namespaces );
+		$this->namespaces = array_merge( array( 'Kodi' ), $namespaces );
 		$this->register_autoloader();
 
 	}
