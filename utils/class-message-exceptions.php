@@ -2,7 +2,6 @@
 /**
  * Messages to exceptions utils
  *
- * @link              http://example.com
  * @since             1.0.0
  * @package           Kodi
  * @subpackage        Kodi/inc/woocommerce
@@ -28,7 +27,6 @@ class Message_Exceptions {
 			set_error_handler( array( self::class, 'exceptions_error_handler' ) );
 			// phpcs:enable
 		}
-
 	}
 
 	/**
@@ -43,7 +41,6 @@ class Message_Exceptions {
 	 * @throws ErrorException Exception thrown instead of message.
 	 */
 	public static function exceptions_error_handler( $severity, $message, $filename, $lineno ) {
-		throw new ErrorException( $message, 0, $severity, $filename, $lineno );
+		throw new ErrorException( esc_html( $message ), 0, esc_html( $severity ), esc_html( $filename ), esc_html( $lineno ) );
 	}
-
 }

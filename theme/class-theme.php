@@ -2,7 +2,7 @@
 /**
  * WordPress OOP Theme
  *
- * @since             1.0.1
+ * @since             2.0.0
  * @package           Kodi
  * @subpackage        Kodi/theme
  */
@@ -49,7 +49,6 @@ class Theme {
 		$this->loader = new Loader();
 		$this->add_style( $this->theme_slug . '-styles', get_stylesheet_uri(), array(), false, 'all', 20 )
 			->add_style( $this->theme_slug . '-theme', get_stylesheet_directory_uri() . '/css/theme.css', array(), false, 'all', 20 );
-
 	}
 
 	/**
@@ -77,15 +76,15 @@ class Theme {
 	/**
 	 * Add action after theme  setup
 	 *
-	 * @param callable $function the funtion to run.
+	 * @param callable $func the funtion to run.
 	 *
 	 * @return void
 	 */
-	private function action_after_setup( callable $function ) {
+	private function action_after_setup( callable $func ) {
 		add_action(
 			'after_setup_theme',
-			function () use ( $function ) {
-				$function();
+			function () use ( $func ) {
+				$func();
 			}
 		);
 	}
@@ -158,16 +157,16 @@ class Theme {
 	/**
 	 * Enqueue script
 	 *
-	 * @param callable $function the function to be executed.
+	 * @param callable $func the function to be executed.
 	 * @param int      $priority the priority.
 	 *
 	 * @return void
 	 */
-	private function action_enqueue_scripts( callable $function, int $priority = 10 ) {
+	private function action_enqueue_scripts( callable $func, int $priority = 10 ) {
 		add_action(
 			'wp_enqueue_scripts',
-			function () use ( $function ) {
-				$function();
+			function () use ( $func ) {
+				$func();
 			},
 			$priority
 		);
@@ -247,15 +246,15 @@ class Theme {
 	/**
 	 * Enqueue admin script
 	 *
-	 * @param callable $function the function to be executed.
+	 * @param callable $func the function to be executed.
 	 *
 	 * @return void
 	 */
-	private function action_admin_enqueue_scripts( callable $function ) {
+	private function action_admin_enqueue_scripts( callable $func ) {
 		add_action(
 			'admin_enqueue_scripts',
-			function () use ( $function ) {
-				$function();
+			function () use ( $func ) {
+				$func();
 			}
 		);
 	}
@@ -352,7 +351,7 @@ class Theme {
 	/**
 	 * Load text domain.
 	 *
-	 * @param string       $domain the language domain
+	 * @param string       $domain the language domain.
 	 * @param false|string $path   the path to domain files.
 	 *
 	 * @return $this
