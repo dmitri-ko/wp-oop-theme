@@ -1,5 +1,6 @@
 {
     "name": "kodi/wp-oop-theme",
+    "version": "2.0.1",
     "description": "Wordpress OOP theme core classes",
     "type": "library",
     "license": "gpl-3.0",

@@ -2,7 +2,7 @@
 /**
  * WordPress OOP Theme
  *
- * @since             2.0.0
+ * @since             2.0.1
  * @package           Kodi
  * @subpackage        Kodi/theme
  */
@@ -48,7 +48,7 @@ class Theme {
 		}
 		$this->loader = new Loader();
 		$this->add_style( $this->theme_slug . '-styles', get_stylesheet_uri(), array(), false, 'all', 20 )
-			->add_style( $this->theme_slug . '-theme', get_stylesheet_directory_uri() . '/css/theme.css', array(), false, 'all', 20 );
+			->add_style( $this->theme_slug . '-theme', trailingslashit( get_stylesheet_directory_uri() ) . 'assets/css/theme.css', array(), false, 'all', 20 );
 	}
 
 	/**
