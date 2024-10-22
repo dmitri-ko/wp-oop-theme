@@ -2,7 +2,7 @@
 /**
  * WordPress OOP Theme
  *
- * @since             2.0.1
+ * @since             2.0.2
  * @package           Kodi
  * @subpackage        Kodi/theme
  */

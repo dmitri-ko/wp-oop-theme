@@ -24,5 +24,5 @@ interface Theme_Configurator {
 	 *
 	 * @return void
 	 */
-	public static function configure( $theme );
+	public static function configure( Theme $theme );
 }
